@@ -15,6 +15,8 @@ return {
 		-- Your DBUI configuration
 		vim.g.db_ui_use_nerd_fonts = 1
 		vim.g.db_ui_win_position = "right"
+		vim.g.db_ui_save_location = "~/db_ui_queries"
+		vim.g.db_ui_execute_on_save = 0
 		vim.o.filetype = "javascript"
 	end,
 	config = function()

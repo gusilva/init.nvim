@@ -50,7 +50,7 @@ vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 500
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
@@ -102,27 +102,11 @@ vim.opt.foldlevel = 99
 vim.g.markdown_folding = 1
 vim.g.mkdp_markdown_css = "~/markdown.css"
 vim.g.mkdp_highlight_css = ""
--- vim.opt.signcolumn = "no"
 
--- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none"})
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
--- vim.cmd("Exec set splitright | vnew | set filetype=bash | read !sh #")
--- vim.cmd([[
---   command! -nargs=0 Exec lua require('gusilva.custom').execute_shell_command()
--- ]])
---
--- local M = {}
--- M.execute_command = function()
--- 	vim.cmd("set splitright")
--- 	vim.cmd("vnew")
--- 	vim.cmd("set filetype=bash")
--- 	vim.cmd("read !bash #")
--- end
---
--- vim.cmd([[
---   command! -nargs=0 Exec lua M.execute_shell_command()
--- ]])
-
--- return M
+-- vim.cmd("colorscheme habamax")
+vim.cmd("colorscheme murphy")
+-- vim.api.nvim_set_keymap("n", "gC", "gc", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "gc", "<Nop>", { noremap = true, silent = true })
