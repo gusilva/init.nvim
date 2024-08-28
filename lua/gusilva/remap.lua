@@ -5,7 +5,9 @@ end
 -- (conflict with <leader>pw) keep copied stuffs in the buffer when pasting it
 -- map("n", "<leader>p", "\"_dP")
 
-map("n", "<leader>pv", vim.cmd.Ex)
+-- map("n", "<leader>pv", vim.cmd.Lexplore)
+map("n", "<leader>pv", vim.cmd.Vexplore)
+map("n", "<F10>", vim.cmd.Vexplore)
 
 -- Save
 map("n", "<leader>w", "<CMD>update<CR>")
@@ -17,10 +19,10 @@ map("n", "<c-c>", "<CMD>q<CR>")
 map("i", "jj", "<ESC>")
 
 -- Window resize
-map("n", "<c-Left>", "<c-w><")
-map("n", "<c-Right>", "<c-w>>")
-map("n", "<c-Up>", "<c-w>+")
-map("n", "<c-Down>", "<c-w>-")
+map("n", "<s-Left>", "<c-w><")
+map("n", "<s-Right>", "<c-w>>")
+map("n", "<s-Up>", "<c-w>+")
+map("n", "<s-Down>", "<c-w>-")
 
 -- Move selected line / block of text in visual mode
 map("v", "J", ":m '>+1<CR>gv=gv")
@@ -37,7 +39,6 @@ map("n", "<TAB>", "<CMD>bnext<CR>")
 map("n", "<s-TAB>", "<CMD>bprevious<CR>")
 
 map("n", "Q", "<Nop>")
-map("n", "<c-f>", "<CMD>silent !tmux new tmux-sessionizer<CR>")
 
 -- LSP format
 map("n", "<leader>f", function()
@@ -82,3 +83,7 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagn
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 vim.api.nvim_set_keymap("n", "gcl", "gcc", { desc = "Toggle comment line", expr = true })
+
+vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])

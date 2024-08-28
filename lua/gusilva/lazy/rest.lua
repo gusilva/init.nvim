@@ -4,6 +4,9 @@ return {
 		vim.g.vrc_set_default_mappings = 0
 		vim.g.vrc_response_default_content_type = "application/json"
 		vim.g.vrc_output_buffer_name = "_output.json"
+		--let b:vrc_allow_get_request_body = 1
+		--let b:vrc_split_request_body = 0
+		-- vim.g.vrc_split_request_body = 1
 		vim.g.vrc_auto_format_response_patterns = {
 			json = "jq",
 		}

@@ -110,3 +110,13 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.cmd("colorscheme murphy")
 -- vim.api.nvim_set_keymap("n", "gC", "gc", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gc", "<Nop>", { noremap = true, silent = true })
+
+-- Disable swap and backup files
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
+-- netrw settings
+vim.g.netrw_winsize = 25
+vim.g.netrw_banner = 1

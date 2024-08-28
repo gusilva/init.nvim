@@ -35,7 +35,7 @@ local servers = {
 			matcher = "Fuzzy",
 			diagnosticsDelay = "500ms",
 			symbolMatcher = "fuzzy",
-			buildFlags = { "-tags", "integration" },
+			buildFlags = { "-tags", "integration,end2end" },
 			vulncheck = "Imports",
 			hints = {
 				constantValues = true,
@@ -73,6 +73,8 @@ local servers = {
 	terraformls = {
 		filetypes = { "terraform", "tf", "tfvars" },
 	},
+	docker_compose_language_service = {},
+	dockerls = {},
 }
 
 -- [[ Configure LSP ]]
@@ -183,6 +185,7 @@ return {
 			"golangci-lint", -- Used to lint Go code
 			"markdownlint", -- Used to lint Markdown files
 			"goimports", -- Used to format Go code
+			"yamllint", -- Used to lint YAML files
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
