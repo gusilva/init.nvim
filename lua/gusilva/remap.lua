@@ -6,8 +6,8 @@ end
 -- map("n", "<leader>p", "\"_dP")
 
 -- map("n", "<leader>pv", vim.cmd.Lexplore)
-map("n", "<leader>pv", vim.cmd.Vexplore)
-map("n", "<F10>", vim.cmd.Vexplore)
+map("n", "<leader>pv", vim.cmd.Ex)
+map("n", "<F10>", vim.cmd.Ex)
 
 -- Save
 map("n", "<leader>w", "<CMD>update<CR>")

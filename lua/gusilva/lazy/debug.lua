@@ -26,6 +26,9 @@ return {
 
 		-- add debug description text
 		"theHamsta/nvim-dap-virtual-text",
+
+		-- add nio
+		"nvim-neotest/nvim-nio",
 	},
 	config = function()
 		local dap = require("dap")

@@ -118,5 +118,5 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- netrw settings
-vim.g.netrw_winsize = 25
+-- vim.g.netrw_winsize = 25
 vim.g.netrw_banner = 1
