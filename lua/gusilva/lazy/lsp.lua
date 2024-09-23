@@ -43,7 +43,7 @@ local servers = {
 			},
 		},
 	},
-	tsserver = {},
+	-- tsserver = {},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
