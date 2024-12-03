@@ -44,6 +44,7 @@ local servers = {
 		},
 	},
 	-- tsserver = {},
+	ts_ls = {},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
@@ -65,7 +66,7 @@ local servers = {
 	html = {
 		filetypes = { "html", "gohtml", "templ" },
 	},
-	htmx = {},
+	-- htmx = {},
 	tailwindcss = {
 		filetypes = { "html", "css", "scss", "javascript", "typescript", "templ", "gohtml" },
 	},
@@ -75,6 +76,7 @@ local servers = {
 	},
 	docker_compose_language_service = {},
 	dockerls = {},
+	golangci_lint_ls = {},
 }
 
 -- [[ Configure LSP ]]
@@ -185,7 +187,7 @@ return {
 			"golangci-lint", -- Used to lint Go code
 			"markdownlint", -- Used to lint Markdown files
 			"goimports", -- Used to format Go code
-			"yamllint", -- Used to lint YAML files
+			-- "yamllint", -- Used to lint YAML files
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

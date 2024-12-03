@@ -10,7 +10,10 @@ return {
 			"nvim-telescope/telescope-fzf-native.nvim",
 			-- NOTE: If you are having trouble with this installation,
 			--       refer to the README for telescope-fzf-native for more instructions.
-			build = "make",
+      -- build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release',
+			build = "zig cc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o libfzf.dll",
+      --       zig cc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
+      -- build = "make",
 			cond = function()
 				return vim.fn.executable("make") == 1
 			end,

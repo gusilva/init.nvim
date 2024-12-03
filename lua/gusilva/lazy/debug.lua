@@ -66,6 +66,7 @@ return {
 				-- port = "${port}",
 				args = {},
 				build_flags = "-v -tags=unit,integration,e2e,end2end",
+				detached = vim.fn.has("win32") == 0,
 			},
 		})
 

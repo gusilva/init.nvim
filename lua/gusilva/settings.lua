@@ -114,7 +114,14 @@ vim.api.nvim_set_keymap("n", "gc", "<Nop>", { noremap = true, silent = true })
 -- Disable swap and backup files
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+-- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+local undodir = nil
+if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
+	undodir = os.getenv("USERPROFILE") .. ".\\AppData\\Local\\nvim-data\\undo\\"
+else 
+  undodir = os.getenv("HOME") .. "/.vim/undodir"
+end
+vim.opt.undodir = undodir
 vim.opt.undofile = true
 
 -- netrw settings
