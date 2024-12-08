@@ -45,15 +45,18 @@ return {
 	},
 	keys = {
 		-- Run API request
-		{ "<leader>hA", "<cmd>HurlRunner --insecure<CR>", desc = "Run All requests" },
-		{ "<leader>ha", "<cmd>HurlRunnerAt --insecure<CR>", desc = "Run Api request" },
+		{ "<leader>hiA", "<cmd>HurlRunner --insecure<CR>", desc = "Run All requests" },
+		{ "<leader>hA", "<cmd>HurlRunner<CR>", desc = "Run All requests" },
+		{ "<leader>hia", "<cmd>HurlRunnerAt --insecure<CR>", desc = "Run Api request" },
+		{ "<leader>ha", "<cmd>HurlRunnerAt<CR>", desc = "Run Api request" },
 		{ "<leader>he", "<cmd>HurlRunnerToEntry<CR>", desc = "Run Api request to entry" },
 		{ "<leader>hE", "<cmd>HurlRunnerToEnd<CR>", desc = "Run Api request from current entry to end" },
 		{ "<leader>hv", "<cmd>HurlVerbose<CR>", desc = "Run Api in verbose mode" },
 		{ "<leader>hV", "<cmd>HurlVeryVerbose<CR>", desc = "Run Api in very verbose mode" },
 		{ "<leader>hr", "<cmd>HurlRerun<CR>", desc = "Rerun last command" },
 		-- Run Hurl request in visual mode
-		{ "<leader>hh", ":HurlRunner --insecure<CR>", desc = "Hurl Runner", mode = "v" },
+		{ "<leader>hih", ":HurlRunner --insecure<CR>", desc = "Hurl Runner", mode = "v" },
+		{ "<leader>hh", ":HurlRunner<CR>", desc = "Hurl Runner", mode = "v" },
 		-- Show last response
 		{ "<leader>hh", "<cmd>HurlShowLastResponse<CR>", desc = "History", mode = "n" },
 		-- Manage variable
