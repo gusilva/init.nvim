@@ -184,7 +184,7 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
-			"golangci-lint", -- Used to lint Go code
+			-- "golangci-lint", -- Used to lint Go code
 			"markdownlint", -- Used to lint Markdown files
 			"goimports", -- Used to format Go code
 			-- "yamllint", -- Used to lint YAML files
