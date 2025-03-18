@@ -13,7 +13,7 @@ local servers = {
 				undeclaredname = true,
 				fillreturns = true,
 				nonewvars = true,
-				fieldalignment = true,
+				-- fieldalignment = true,
 				shadow = true,
 				unusedvariable = true,
 				ST1003 = true,
@@ -76,7 +76,37 @@ local servers = {
 	},
 	docker_compose_language_service = {},
 	dockerls = {},
-	golangci_lint_ls = {},
+	harper_ls = {
+		filetypes = { "markdown", "go" },
+		settings = {
+			["harper-ls"] = {
+				userDictPath = "",
+				fileDictPath = "",
+				linters = {
+					SpellCheck = false,
+					SpelledNumbers = false,
+					AnA = true,
+					SentenceCapitalization = false,
+					UnclosedQuotes = true,
+					WrongQuotes = false,
+					LongSentences = true,
+					RepeatedWords = true,
+					Spaces = true,
+					Matcher = true,
+					CorrectNumberSuffix = true,
+				},
+				codeActions = {
+					ForceStable = false,
+				},
+				markdown = {
+					IgnoreLinkTitle = false,
+				},
+				diagnosticSeverity = "hint",
+				isolateEnglish = false,
+			},
+		},
+	},
+	-- golangci_lint_ls = {},
 }
 
 -- [[ Configure LSP ]]

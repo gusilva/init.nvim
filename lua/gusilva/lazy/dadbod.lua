@@ -2,9 +2,9 @@ return {
 	"kristijanhusak/vim-dadbod-ui",
 	dependencies = {
 		{ "tpope/vim-dadbod", lazy = true },
-		{ "kristijanhusak/vim-dadbod-completion", ft = { "javascript" }, lazy = true },
+		{ "kristijanhusak/vim-dadbod-completion", ft = { "javascript", "sql", "plsql" }, lazy = true },
 	},
-	ft = { "javascript" },
+	ft = { "javascript", "sql", "plsql" },
 	cmd = {
 		"DBUI",
 		"DBUIToggle",
@@ -18,22 +18,25 @@ return {
 		vim.g.db_ui_save_location = "~/db_ui_queries"
 		vim.g.db_ui_execute_on_save = 0
 		vim.o.filetype = "javascript"
+
+		vim.g.db_ui_is_oracle_legacy = 1
 	end,
 	config = function()
 		vim.keymap.set("n", "<leader>du", "<CMD>DBUIToggle<CR>")
 		vim.keymap.set("n", "<leader>dl", "<CMD>DBUILastQueryInfo<CR>")
 
 		vim.o.filetype = "javascript"
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = {
-				"javascript",
-			},
-			command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
-		})
+		-- vim.api.nvim_create_autocmd("FileType", {
+		-- 	pattern = {
+		-- 		"javascript",
+		-- 	},
+		-- 	command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
+		-- })
 
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = {
 				"sql",
+				"plsql",
 				"javascript",
 			},
 			callback = function()
