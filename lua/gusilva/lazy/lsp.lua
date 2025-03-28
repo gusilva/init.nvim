@@ -77,7 +77,7 @@ local servers = {
 	docker_compose_language_service = {},
 	dockerls = {},
 	harper_ls = {
-		filetypes = { "markdown", "go" },
+		filetypes = { "markdown" },
 		settings = {
 			["harper-ls"] = {
 				userDictPath = "",
@@ -102,7 +102,7 @@ local servers = {
 					IgnoreLinkTitle = false,
 				},
 				diagnosticSeverity = "hint",
-				isolateEnglish = false,
+				isolateEnglish = true,
 			},
 		},
 	},
