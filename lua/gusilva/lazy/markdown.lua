@@ -24,7 +24,7 @@ return {
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = "markdown",
-    build = "cd app && npm install",
+		build = "cd app && npm install",
 		-- build = function()
 		-- 	vim.fn["mkdp#util#install"]()
 		-- end,
@@ -54,6 +54,7 @@ return {
 			vim.g.mkdp_preview_options = mkdp_preview_options
 			-- open in google chrome
 			-- let g:mkdp_browser = '/usr/bin/google-chrome-stable'
+			-- let g:mkdp_browser = '/usr/bin/brave'
 		end,
 	},
 }

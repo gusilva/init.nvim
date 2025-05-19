@@ -102,6 +102,7 @@ vim.opt.foldlevel = 99
 vim.g.markdown_folding = 1
 vim.g.mkdp_markdown_css = "~/markdown.css"
 vim.g.mkdp_highlight_css = ""
+vim.g.mkdp_browser = "/usr/bin/brave"
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
