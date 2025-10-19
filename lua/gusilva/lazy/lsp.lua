@@ -16,8 +16,8 @@ local servers = {
 				-- fieldalignment = true,
 				shadow = true,
 				unusedvariable = true,
-				ST1003 = true,
 				ST1008 = true,
+				ST1003 = false, -- disable "underscore in package name"
 			},
 			codelenses = {
 				generate = true, -- show the `go generate` lens.

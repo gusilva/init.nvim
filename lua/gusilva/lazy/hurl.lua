@@ -22,7 +22,9 @@ return {
 		-- Show response in popup or split
 		mode = "split",
 		-- Default split options
-		split_position = "bottom",
+		split_position = "left",
+		-- auto close the response popup or split view after running the request
+		auto_close = false,
 		-- Default formatter
 		formatters = {
 			json = { "jq" }, -- Make sure you have install jq in your system, e.g: brew install jq
