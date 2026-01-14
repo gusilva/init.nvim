@@ -65,7 +65,7 @@ return {
 				-- additional args to pass to dlv
 				-- port = "${port}",
 				args = {},
-				build_flags = "-v -tags=unit,integration,e2e,end2end",
+				build_flags = "-v -tags=unit,integration,e2e,end2end,test",
 				detached = vim.fn.has("win32") == 0,
 			},
 			tests = {

@@ -51,6 +51,20 @@ return {
 				toc = {},
 			}
 
+			-- 	vim.cmd([[
+			--   function! OpenMarkdownPreview(url)
+			--     " Prefer jobstart for non-blocking open
+			--     call jobstart(['open', '-a', 'Safari', '-n', '--args', '--new-window', a:url])
+			--   endfunction
+			-- ]])
+			--
+			-- 	vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
+			-- function OpenMarkdownPreview (url)
+			--   execute "silent ! open -a Safari -n --args --new-window " . a:url
+			-- endfunction
+			--
+			-- vim.g.mkdp_browserfunc = 'OpenMarkdownPreview'
+			--
 			vim.g.mkdp_preview_options = mkdp_preview_options
 			-- open in google chrome
 			-- let g:mkdp_browser = '/usr/bin/google-chrome-stable'

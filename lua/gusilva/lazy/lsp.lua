@@ -1,7 +1,7 @@
 -- Enable the following language servers
 local servers = {
 	gopls = {
-		filetypes = { "go", "gomod", "gowork", "gotmpl" },
+		filetypes = { "go", "gomod", "gowork", "gotmpl", "tmpl" },
 		cmd = { "gopls" },
 		gopls = {
 			analyses = {
@@ -44,7 +44,9 @@ local servers = {
 		},
 	},
 	-- tsserver = {},
-	ts_ls = {},
+	ts_ls = {
+		filetypes = { "js", "jsx", "ts", "tsx", "html" },
+	},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
@@ -64,11 +66,30 @@ local servers = {
 		filetypes = { "templ" },
 	},
 	html = {
-		filetypes = { "html", "gohtml", "templ" },
+		filetypes = { "html", "gohtml", "templ", "tmpl", "gotmpl" },
+	},
+	emmet_language_server = {
+		filetypes = { "html", "css", "javascriptreact", "typescriptreact" },
 	},
 	-- htmx = {},
 	tailwindcss = {
-		filetypes = { "html", "css", "scss", "javascript", "typescript", "templ", "gohtml" },
+		filetypes = {
+			"html",
+			"css",
+			"scss",
+			"javascript",
+			"typescript",
+			"templ",
+			"gohtml",
+			"tmpl",
+			"gotmpl",
+			"typescriptreact",
+			"javascriptreact",
+			"tsx",
+			"jsx",
+			"ts",
+			"js",
+		},
 	},
 	tflint = {},
 	terraformls = {

@@ -11,9 +11,9 @@ return {
 			-- NOTE: If you are having trouble with this installation,
 			--       refer to the README for telescope-fzf-native for more instructions.
 			-- build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release',
-			build = "zig cc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o libfzf.dll",
+			-- build = "zig cc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o libfzf.dll",
 			--       zig cc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
-			-- build = "make",
+			build = "make",
 			cond = function()
 				return vim.fn.executable("make") == 1
 			end,
@@ -45,6 +45,10 @@ return {
 					hidden = true,
 					-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
 					find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+					file_ignore_patterns = { "node_modules/", ".git/", ".venv/" },
+				},
+				live_grep = {
+					file_ignore_patterns = { "node_modules/", ".git/", ".venv/" },
 				},
 			},
 		})
