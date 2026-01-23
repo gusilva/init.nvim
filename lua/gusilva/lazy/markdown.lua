@@ -61,8 +61,13 @@ return {
 			-- 	vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
 			-- function OpenMarkdownPreview (url)
 			--   execute "silent ! open -a Safari -n --args --new-window " . a:url
-			-- endfunction
+			-- end
+
+			--    local function open_markdown_preview(url)
+			--      vim.fn.jobstart({'open', '-a', 'Safari', '-n', '--args', '--new-window', url})
+			--    end
 			--
+			-- _G.OpenMarkdownPreview = open_markdown_preview
 			-- vim.g.mkdp_browserfunc = 'OpenMarkdownPreview'
 			--
 			vim.g.mkdp_preview_options = mkdp_preview_options
