@@ -90,3 +90,30 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- terminal
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
+
+-- neorg
+-- in your init.lua or a file in lua/...
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "norg",
+	callback = function()
+		local opts = { buffer = true, noremap = true, silent = true }
+		-- vim.keymap.set("n", "<leader>nn", "<Cmd>Neorg index<CR>", opts)
+		vim.keymap.set("n", "<leader>nj", "<Cmd>Neorg journal<CR>", opts)
+
+		vim.keymap.set(
+			"n",
+			"<leader>ntd",
+			"<Plug>(neorg.qol.todo-items.todo.task-done)",
+			{ buffer = true, desc = "Toggle [N]eorg [T]odo [D]one" }
+		)
+		-- vim.keymap.set("n", "<leader>ntd", "<Cmd>Neorg toggle core.norg.qol.todo_items.todo_done<CR>", opts)
+		-- <LocalLeader>ta - mark the task under the cursor as "ambiguous"
+		-- <LocalLeader>tc - mark the task under the cursor as "cancelled"
+		-- <LocalLeader>td - mark the task under the cursor as "done"
+		-- <LocalLeader>th - mark the task under the cursor as "on-hold"
+		-- <LocalLeader>ti - mark the task under the cursor as "important"
+		-- <LocalLeader>tp - mark the task under the cursor as "pending"
+		-- <LocalLeader>tr - mark the task under the cursor as "recurring"
+		-- <LocalLeader>tu - mark the task under the cursor as "undone"
+	end,
+})

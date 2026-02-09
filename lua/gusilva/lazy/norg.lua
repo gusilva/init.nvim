@@ -53,6 +53,17 @@ return {
 						-- snippets_overwrite = {},
 					},
 				},
+				-- ["core.keybinds"] = {
+				-- 	config = {
+				-- 		-- default_keybinds = false, -- disable default neorg keybinds
+				-- 		hook = function(keybinds)
+				-- 			-- mode, lhs, rhs (rhs can be a command string)
+				-- 			keybinds.map("n", "<leader>nn", "<cmd>Neorg index<CR>")
+				-- 			keybinds.map("n", "<leader>nj", "<cmd>Neorg journal<CR>")
+				-- 			keybinds.map("n", "<leader>nt", "<cmd>Neorg toc<CR>")
+				-- 		end,
+				-- 	},
+				-- },
 			},
 		})
 
