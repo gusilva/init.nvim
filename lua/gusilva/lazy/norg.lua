@@ -4,7 +4,10 @@ return {
 	-- version = "*", -- Pin Neorg to the latest stable release
 	-- config = true,
 	build = ":Neorg sync-parsers",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = {
+		{ "pysan3/neorg-templates", dependencies = { "L3MON4D3/LuaSnip" } },
+		{ "nvim-lua/plenary.nvim" },
+	},
 	config = function()
 		require("neorg").setup({
 			load = {
@@ -22,6 +25,32 @@ return {
 					config = {
 						journal_folder = vim.fn.expand("/journal"), -- absolute path
 						-- or: vim.fn.stdpath('data') .. "/neorg/journal"
+						-- strategy = "flat", -- or "nested"
+						use_templates = false,
+					},
+				},
+				["external.templates"] = {
+					config = {
+						-- templates_dir = vim.fn.stdpath("config") .. "/templates/norg",
+						-- default_subcommand = "add", -- or "fload", "load"
+						keywords = { -- Add your own keywords.
+							TODAY_OF_ORG = function() -- detect date from filename and return in org date format
+								local ls = require("luasnip")
+								local s = require("neorg.modules.external.templates.default_snippets")
+								return ls.text_node(s.parse_date(0, s.file_name_date(), [[%Y-%m-%d]])) -- 2006-11-01
+							end,
+							TITLE_TODAY = function()
+								local ls = require("luasnip")
+								local s = require("neorg.modules.external.templates.default_snippets")
+								return ls.text_node(s.parse_date(0, s.file_name_date(), [[%a, %d %b %Y]])) -- Fri, 06 Feb 2026
+							end,
+							NOW_IN_DATETIME = function() -- print current date+time of invoke
+								local ls = require("luasnip")
+								local s = require("neorg.modules.external.templates.default_snippets")
+								return ls.text_node(s.parse_date(0, os.time(), [[%Y-%m-%d %a %X]])) -- 2023-11-01 Wed 23:48:10
+							end,
+						},
+						-- snippets_overwrite = {},
 					},
 				},
 			},

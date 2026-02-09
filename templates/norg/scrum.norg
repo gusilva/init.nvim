@@ -1,0 +1,24 @@
+___
+@document.meta
+title: {TODAY_OF_ORG}
+description: Dayly Scrum Template
+authors: {AUTHOR}
+categories: Scrum
+created: {TODAY}
+updated: {TODAY}
+version: 1.0.0
+@end
+___
+
+* Daily Scrum – {TITLE_TODAY}
+
+** {{:{YESTERDAY}:}}[Yesterday's Progress] 
+
+** Today's Plan
+{CURSOR}
+** {{:{TOMORROW}:}}[Tomorrow]
+
+** Impediments
+
+** Notes
+
