@@ -266,11 +266,11 @@ return {
 		require("mason").setup()
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
-			"stylua", -- Used to format Lua code
-			-- "golangci-lint", -- Used to lint Go code
-			"markdownlint", -- Used to lint Markdown files
-			"goimports", -- Used to format Go code
-			-- "yamllint", -- Used to lint YAML files
+			"stylua",
+			-- "golangci-lint",
+			"markdownlint",
+			"goimports",
+			-- "yamllint",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -296,6 +296,10 @@ return {
 						-- init_options = (servers[server_name] or {}).init_options,
 					})
 				end,
+				-- Skip kotlin_language_server here — it's handled by kotlin.nvim
+				-- (which configures it as "kotlin_ls" with a workaround for
+				-- KLS v1.3.13 bug fwcd/kotlin-language-server#648)
+				kotlin_language_server = function() end,
 			},
 		})
 
