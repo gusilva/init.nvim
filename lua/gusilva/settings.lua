@@ -90,7 +90,8 @@ vim.opt.wildmenu = true
 vim.opt.showcmd = true
 vim.opt.showmatch = true
 vim.opt.smartindent = true
-vim.opt.wrap = false
+vim.opt.wrap = true
+vim.opt.linebreak = true
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.g.neovide_padding_bottom = 0
