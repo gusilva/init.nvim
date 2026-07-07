@@ -97,23 +97,26 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "norg",
 	callback = function()
 		local opts = { buffer = true, noremap = true, silent = true }
+		local todo_opts = function(desc)
+			return { buffer = true, noremap = true, silent = true, desc = desc }
+		end
 		-- vim.keymap.set("n", "<leader>nn", "<Cmd>Neorg index<CR>", opts)
 		vim.keymap.set("n", "<leader>nj", "<Cmd>Neorg journal<CR>", opts)
 
+		vim.keymap.set("n", "<leader>ntd", "<Plug>(neorg.qol.todo-items.todo.task-done)", todo_opts("Neorg task: done"))
+		vim.keymap.set("n", "<leader>ntu", "<Plug>(neorg.qol.todo-items.todo.task-undone)", todo_opts("Neorg task: undone"))
+		vim.keymap.set("n", "<leader>ntp", "<Plug>(neorg.qol.todo-items.todo.task-pending)", todo_opts("Neorg task: pending"))
+		vim.keymap.set("n", "<leader>nth", "<Plug>(neorg.qol.todo-items.todo.task-on-hold)", todo_opts("Neorg task: on hold"))
+		vim.keymap.set("n", "<leader>ntc", "<Plug>(neorg.qol.todo-items.todo.task-cancelled)", todo_opts("Neorg task: cancelled"))
+		vim.keymap.set("n", "<leader>ntr", "<Plug>(neorg.qol.todo-items.todo.task-recurring)", todo_opts("Neorg task: recurring"))
+		vim.keymap.set("n", "<leader>nti", "<Plug>(neorg.qol.todo-items.todo.task-important)", todo_opts("Neorg task: important"))
+		vim.keymap.set("n", "<leader>nta", "<Plug>(neorg.qol.todo-items.todo.task-ambiguous)", todo_opts("Neorg task: ambiguous"))
+		vim.keymap.set("n", "<leader>ntt", "<Plug>(neorg.qol.todo-items.todo.task-cycle)", todo_opts("Neorg task: cycle"))
 		vim.keymap.set(
 			"n",
-			"<leader>ntd",
-			"<Plug>(neorg.qol.todo-items.todo.task-done)",
-			{ buffer = true, desc = "Toggle [N]eorg [T]odo [D]one" }
+			"<leader>ntT",
+			"<Plug>(neorg.qol.todo-items.todo.task-cycle-reverse)",
+			todo_opts("Neorg task: cycle reverse")
 		)
-		-- vim.keymap.set("n", "<leader>ntd", "<Cmd>Neorg toggle core.norg.qol.todo_items.todo_done<CR>", opts)
-		-- <LocalLeader>ta - mark the task under the cursor as "ambiguous"
-		-- <LocalLeader>tc - mark the task under the cursor as "cancelled"
-		-- <LocalLeader>td - mark the task under the cursor as "done"
-		-- <LocalLeader>th - mark the task under the cursor as "on-hold"
-		-- <LocalLeader>ti - mark the task under the cursor as "important"
-		-- <LocalLeader>tp - mark the task under the cursor as "pending"
-		-- <LocalLeader>tr - mark the task under the cursor as "recurring"
-		-- <LocalLeader>tu - mark the task under the cursor as "undone"
 	end,
 })

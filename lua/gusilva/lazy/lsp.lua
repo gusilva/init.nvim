@@ -46,6 +46,15 @@ local servers = {
 	-- tsserver = {},
 	ts_ls = {
 		filetypes = { "js", "jsx", "ts", "tsx", "html" },
+    root_dir = function(fname)
+      return require("lspconfig.util").root_pattern(
+        "package.json",
+        "tsconfig.json",
+        "jsconfig.json",
+        ".git"
+      )(fname)
+    end,
+		single_file_support = false,
 	},
 	lua_ls = {
 		Lua = {
@@ -124,6 +133,29 @@ local servers = {
 				},
 				diagnosticSeverity = "hint",
 				isolateEnglish = true,
+			},
+		},
+	},
+	eslint = {
+		filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    root_dir = function(fname)
+      return require("lspconfig.util").root_pattern(
+        ".eslintrc",
+        ".eslintignore",
+        "lefthook.yml",
+        "package.json",
+        ".git"
+      )(fname)
+    end,
+		settings = {
+			eslint = {
+				workingDirectory = { mode = "auto" },
+				packageManager = "npm",
+				validate = "on",
+				useESLintClass = false,
+				experimental = {
+					useFlatConfig = false,
+				},
 			},
 		},
 	},
