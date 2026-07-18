@@ -33,6 +33,7 @@ return {
 			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 			-- python = { "isort", "black" },
+			swift = { "swiftformat" },
 		},
 	},
 }

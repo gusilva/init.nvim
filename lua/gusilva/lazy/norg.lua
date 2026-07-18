@@ -23,7 +23,7 @@ return {
 				},
 				["core.journal"] = {
 					config = {
-						journal_folder = vim.fn.expand("/journal"), -- absolute path
+						journal_folder = vim.fn.stdpath("data") .. "/neorg/journal", -- absolute path
 						-- or: vim.fn.stdpath('data') .. "/neorg/journal"
 						-- strategy = "flat", -- or "nested"
 						use_templates = false,

@@ -158,6 +158,19 @@ local servers = {
 				},
 			},
 		},
+  },
+	sourcekit = {
+		filetypes = { "swift", "objective-c", "objective-cpp" },
+		cmd = { "xcrun", "sourcekit-lsp" },
+		root_dir = function(fname)
+			return require("lspconfig.util").root_pattern(
+				"buildServer.json",
+				"*.xcodeproj",
+				"*.xcworkspace",
+				"Package.swift",
+				".git"
+			)(fname)
+		end,
 	},
 	-- golangci_lint_ls = {},
 }
@@ -264,15 +277,21 @@ return {
 
 		-- before setting up the servers.
 		require("mason").setup()
-		local ensure_installed = vim.tbl_keys(servers or {})
-		vim.list_extend(ensure_installed, {
+		-- sourcekit ships with Xcode, not available via Mason — exclude from installer
+		local mason_managed = {}
+		for name, _ in pairs(servers or {}) do
+			if name ~= "sourcekit" then
+				table.insert(mason_managed, name)
+			end
+		end
+		vim.list_extend(mason_managed, {
 			"stylua",
 			-- "golangci-lint",
 			"markdownlint",
 			"goimports",
 			-- "yamllint",
 		})
-		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+		require("mason-tool-installer").setup({ ensure_installed = mason_managed })
 
 		-- local mason_lspconfig = require 'mason-lspconfig'
 		-- mason_lspconfig.setup {
@@ -302,6 +321,22 @@ return {
 				kotlin_language_server = function() end,
 			},
 		})
+
+		-- sourcekit-lsp is not a Mason package (ships with Xcode) — setup via vim.lsp.config
+		-- vim.lsp.config expects async root_dir(bufnr, on_dir), not lspconfig's fname-returning form
+		if vim.fn.executable("xcrun") == 1 then
+			vim.lsp.config("sourcekit", {
+				capabilities = capabilities,
+				on_attach = on_attach,
+				cmd = servers.sourcekit.cmd,
+				filetypes = servers.sourcekit.filetypes,
+				root_dir = function(bufnr, on_dir)
+					local fname = vim.api.nvim_buf_get_name(bufnr)
+					on_dir(servers.sourcekit.root_dir(fname))
+				end,
+			})
+			vim.lsp.enable("sourcekit")
+		end
 
 		-- mason_lspconfig.setup_handlers {
 		--   function(server_name)

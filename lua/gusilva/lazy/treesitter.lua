@@ -1,7 +1,7 @@
--- return { 
---   "nvim-treesitter/nvim-treesitter", 
---   branch = "master", 
---   lazy = false, 
+-- return {
+--   "nvim-treesitter/nvim-treesitter",
+--   branch = "master",
+--   lazy = false,
 --   build = ":TSUpdate",
 --   require'nvim-treesitter.configs'.setup {
 --   -- A list of parser names, or "all" (the listed parsers MUST always be installed)
@@ -49,8 +49,11 @@
 return { -- Highlight, edit, and navigate code
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	main = "nvim-treesitter.configs", -- Sets main module to use for opts
-	-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+	config = function(_, opts)
+		-- CLI 0.24.7 max ABI 14; nvim 0.11 default requests 15. Pin to 14 (accepted).
+		require("nvim-treesitter.install").ts_generate_args = { "generate", "--no-bindings", "--abi", "14" }
+		require("nvim-treesitter.configs").setup(opts)
+	end,
 	opts = {
 		ensure_installed = {
 			"go",
@@ -75,6 +78,9 @@ return { -- Highlight, edit, and navigate code
 			"hcl",
 			"xml",
 			"dockerfile",
+			"swift",
+			"objc",
+			"kotlin",
 		},
 
 		-- ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },

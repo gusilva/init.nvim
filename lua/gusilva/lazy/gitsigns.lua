@@ -1,6 +1,11 @@
 return { -- Adds git related signs to the gutter, as well as utilities for managing changes
 	"lewis6991/gitsigns.nvim",
 	opts = {
+		current_line_blame = true,
+		current_line_blame_opts = {
+			delay = 1000,
+			virt_text_pos = "eol",
+		},
 		signs = {
 			add = { text = "+" },
 			change = { text = "~" },
@@ -38,13 +43,4 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
 			end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
 		end,
 	},
-	config = function()
-		require("gitsigns").setup({
-			current_line_blame = true,
-			current_line_blame_opts = {
-				delay = 1000,
-				virt_text_pos = "eol",
-			},
-		})
-	end,
 }
