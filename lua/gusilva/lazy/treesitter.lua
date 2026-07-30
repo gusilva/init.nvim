@@ -50,8 +50,7 @@ return { -- Highlight, edit, and navigate code
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	config = function(_, opts)
-		-- CLI 0.24.7 max ABI 14; nvim 0.11 default requests 15. Pin to 14 (accepted).
-		require("nvim-treesitter.install").ts_generate_args = { "generate", "--no-bindings", "--abi", "14" }
+		require("nvim-treesitter.install").ts_generate_args = { "generate", "--abi", "latest" }
 		require("nvim-treesitter.configs").setup(opts)
 	end,
 	opts = {
