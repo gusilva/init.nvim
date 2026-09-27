@@ -1,10 +1,9 @@
 return {
 	"christoomey/vim-tmux-navigator",
-	lazy = false,
-	config = function()
-		vim.keymap.set("n", "<c-LEFT>", "<CMD>TmuxNavigateLeft<CR>", { desc = "tmux window left" })
-		vim.keymap.set("n", "<c-RIGHT>", "<CMD>TmuxNavigateRight<CR>", { desc = "tmux window right" })
-		vim.keymap.set("n", "<c-DOWN>", "<CMD>TmuxNavigateDown<CR>", { desc = "tmux window down" })
-		vim.keymap.set("n", "<c-UP>", "<CMD>TmuxNavigateUp<CR>", { desc = "tmux window up" })
-	end,
+	keys = {
+		{ "<C-Left>", "<CMD>TmuxNavigateLeft<CR>", desc = "tmux window left" },
+		{ "<C-Right>", "<CMD>TmuxNavigateRight<CR>", desc = "tmux window right" },
+		{ "<C-Down>", "<CMD>TmuxNavigateDown<CR>", desc = "tmux window down" },
+		{ "<C-Up>", "<CMD>TmuxNavigateUp<CR>", desc = "tmux window up" },
+	},
 }

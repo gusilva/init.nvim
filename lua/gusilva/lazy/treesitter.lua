@@ -48,6 +48,7 @@
 --
 return { -- Highlight, edit, and navigate code
 	"nvim-treesitter/nvim-treesitter",
+	event = { "BufReadPost", "BufNewFile" },
 	build = ":TSUpdate",
 	config = function(_, opts)
 		require("nvim-treesitter.install").ts_generate_args = { "generate", "--abi", "latest" }

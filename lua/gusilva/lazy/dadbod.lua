@@ -17,15 +17,12 @@ return {
 		vim.g.db_ui_win_position = "right"
 		vim.g.db_ui_save_location = "~/db_ui_queries"
 		vim.g.db_ui_execute_on_save = 0
-		vim.o.filetype = "javascript"
-
 		vim.g.db_ui_is_oracle_legacy = 1
 	end,
 	config = function()
 		vim.keymap.set("n", "<leader>du", "<CMD>DBUIToggle<CR>")
 		vim.keymap.set("n", "<leader>dl", "<CMD>DBUILastQueryInfo<CR>")
 
-		vim.o.filetype = "javascript"
 		-- vim.api.nvim_create_autocmd("FileType", {
 		-- 	pattern = {
 		-- 		"javascript",

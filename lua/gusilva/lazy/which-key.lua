@@ -1,7 +1,7 @@
 return {
 	"folke/which-key.nvim",
 	opts = {},
-	event = "VimEnter", -- Sets the loading event to 'VimEnter'
+	event = "VeryLazy",
 	config = function() -- This is the function that runs, AFTER loading
 		require("which-key").setup()
 
